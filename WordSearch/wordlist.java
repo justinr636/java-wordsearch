@@ -9,12 +9,14 @@ public class wordlist {
 	// Properties
 	private static ArrayList<String> dictionary;
 	private int maxWordLength;
+	private int dictLength;
 	
 	// Constructors
 	public wordlist()
 	{
-		this.dictionary = new ArrayList<String>();
+		wordlist.dictionary = new ArrayList<String>();
 		this.maxWordLength = 0;
+		this.dictLength = 0;
 	}
 	
 	// Methods
@@ -24,18 +26,20 @@ public class wordlist {
 		{
 			Scanner s = new Scanner(new File(filename));
 			
-			dictionary.clear();
+			wordlist.dictionary.clear();
 			
 			while (s.hasNext()) {
 				String word = s.next();
 
-				dictionary.add(word);
+				wordlist.dictionary.add(word);
 				
 				if (word.length() > maxWordLength)
-					maxWordLength = word.length();
+					this.maxWordLength = word.length();
 			}
 			
 			s.close();
+			
+			this.dictLength = wordlist.dictionary.size();
 		}
 		catch (FileNotFoundException ex)
 		{
@@ -45,7 +49,12 @@ public class wordlist {
 	
 	public ArrayList<String> getDictionary() 
 	{
-		return this.dictionary;
+		return wordlist.dictionary;
+	}
+	
+	public int getDictionarySize()
+	{
+		return this.dictLength;
 	}
 	
 	public void printDictionary()

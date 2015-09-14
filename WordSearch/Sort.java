@@ -60,4 +60,48 @@ public class Sort {
 			}
 		}
 	}
+	
+	public static void merge(ArrayList<String> arr, ArrayList<String> tempArr, int low, int mid, int high)
+	{
+		for (int i = low; i <= high; i++)
+			tempArr.set(i, arr.get(i));
+		
+		int i = low, j = mid+1, k = low;
+		
+		while (i <= mid && j <= high)
+		{
+			if (tempArr.get(i).compareToIgnoreCase(tempArr.get(j)) <= 0)
+			{
+				arr.set(k, tempArr.get(i));
+				i++;
+			}
+			else
+			{
+				arr.set(k, tempArr.get(j));
+				j++;
+			}
+			k++;
+		}
+		while (i <= mid)
+		{
+			arr.set(k, tempArr.get(i));
+			k++;
+			i++;
+		}
+	}
+	
+	public static void mergeSort(ArrayList<String> arr, int low, int high)
+	{
+		if (low < high) 
+		{
+			ArrayList<String> tempArr = new ArrayList<String>(arr.size());
+			tempArr.addAll(arr);
+
+			int mid = low + (high - low) / 2;
+
+			mergeSort(arr, low, mid);
+			mergeSort(arr, mid+1, high);
+			merge(arr, tempArr, low, mid, high);
+		}
+	}
 }

@@ -1,5 +1,7 @@
 package WordSearch;
 
+import java.util.ArrayList;
+
 public class WordSearch {
 
 	public static void main(String args[])
@@ -14,7 +16,8 @@ public class WordSearch {
 		System.out.println("\nDictionary After Sorting:");
 
 		//Sort.quickSort(d.getDictionary(), 0, 10);
-		Sort.insertionSort(d.getDictionary());
+		//Sort.insertionSort(d.getDictionary());
+		Sort.mergeSort(d.getDictionary(), 0, 10);
 
 		d.printDictionary();
 		
