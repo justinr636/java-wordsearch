@@ -21,6 +21,8 @@ public class WordSearch {
 
 		d.printDictionary();
 		
+		System.out.println(Sort.binarySearch(d.getDictionary(), 0, 10, "unbelievably"));
+		
 		//grid g = new grid();
 		//g.readGridFromFile(path + "input15.txt");
 		//g.printGrid();

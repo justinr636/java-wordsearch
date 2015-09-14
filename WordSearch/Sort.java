@@ -62,6 +62,7 @@ public class Sort {
 	}
 	
 	public static void merge(ArrayList<String> arr, ArrayList<String> tempArr, int low, int mid, int high)
+	// Merge function for mergeSort
 	{
 		for (int i = low; i <= high; i++)
 			tempArr.set(i, arr.get(i));
@@ -91,6 +92,7 @@ public class Sort {
 	}
 	
 	public static void mergeSort(ArrayList<String> arr, int low, int high)
+	// mergeSort for ArrayLists of Strings
 	{
 		if (low < high) 
 		{
@@ -102,6 +104,24 @@ public class Sort {
 			mergeSort(arr, low, mid);
 			mergeSort(arr, mid+1, high);
 			merge(arr, tempArr, low, mid, high);
+		}
+	}
+	
+	public static int binarySearch(ArrayList<String> arr, int first, int last, String key)
+	// binarySearch for ArrayLists of Strings that returns the index of the match
+	{
+		if (last < first)
+			return -1;
+		else
+		{
+			int mid = (first + last) / 2;
+			
+			if (arr.get(mid).compareToIgnoreCase(key) > 0)
+				return binarySearch(arr, first, mid-1, key);
+			else if (arr.get(mid).compareToIgnoreCase(key) < 0)
+				return binarySearch(arr, mid+1, last, key);
+			else
+				return mid;
 		}
 	}
 }
