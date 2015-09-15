@@ -9,6 +9,7 @@ public class wordlist {
 	// Properties
 	private static ArrayList<String> dictionary;
 	private int maxWordLength;
+	private int minWordLength;
 	private int dictLength;
 	
 	// Constructors
@@ -35,6 +36,8 @@ public class wordlist {
 				
 				if (word.length() > maxWordLength)
 					this.maxWordLength = word.length();
+				if (word.length() < minWordLength)
+					this.maxWordLength = word.length();
 			}
 			
 			s.close();
@@ -57,6 +60,16 @@ public class wordlist {
 		return this.dictLength;
 	}
 	
+	public int getMaxWordLength() 
+	{
+		return this.maxWordLength;
+	}
+
+	public int getMinWordLength() 
+	{
+		return this.minWordLength;
+	}
+
 	public void printDictionary()
 	// Prints out the entire word list line by line
 	{

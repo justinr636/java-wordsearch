@@ -60,6 +60,11 @@ public class grid {
 		}
 	}
 	
+	public ArrayList<ArrayList<Character>> getGrid()
+	{
+		return this.map;
+	}
+	
 	public void printGrid()
 	// Prints Grid out to console
 	{
